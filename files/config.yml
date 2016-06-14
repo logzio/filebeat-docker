@@ -1,0 +1,13 @@
+---
+  logzio:
+    token: TOKEN
+
+  files:
+    -
+      type: "mylogtype"
+      path: "/var/log/logfile.log"
+      multiline:
+        pattern: "^\\[?[[:digit:]]+[\\-\\/][[:digit:]]+[\\-\\/][[:digit:]]+ [[:digit:]]+:[[:digit:]]+:[[:digit:]]+"
+    -
+      type: "anotherorthesametype"
+      path: "/var/log/anotherlog.log"
