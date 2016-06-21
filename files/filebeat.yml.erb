@@ -6,6 +6,7 @@ filebeat:
         - <%= file['path'] %>
       fields:
         token: <%= file.has_key?("#{env}_token") ? file["#{env}_token"] : token %>
+        logzio_codec: <%= file['logzio_codec'] %>
 
       fields_under_root: true
       ignore_older: 24h

@@ -5,9 +5,11 @@
   files:
     -
       type: "mylogtype"
+      logzio_codec: "plain"
       path: "/var/log/logfile.log"
       multiline:
         pattern: "^\\[?[[:digit:]]+[\\-\\/][[:digit:]]+[\\-\\/][[:digit:]]+ [[:digit:]]+:[[:digit:]]+:[[:digit:]]+"
     -
-      type: "anotherorthesametype"
-      path: "/var/log/anotherlog.log"
+      type: "anothertype-json"
+      logzio_codec: "json"
+      path: "/var/log/another-json-log.log"

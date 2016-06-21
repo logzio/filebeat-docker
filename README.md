@@ -14,12 +14,14 @@ You can either supply the configuration file through -v, or build your own conta
   files:
     -
       type: "mylogtype"
+      logzio_codec: "plain"
       path: "/var/log/logfile.log"
       multiline:
         pattern: "^\\[?[[:digit:]]+[\\-\\/][[:digit:]]+[\\-\\/][[:digit:]]+ [[:digit:]]+:[[:digit:]]+:[[:digit:]]+"
     -
-      type: "anotherorthesametype"
-      path: "/var/log/anotherlog.log"
+      type: "anothertype-json"
+      logzio_codec: "json"
+      path: "/var/log/another-json-log.log"
 ```
 - `TOKEN` - Your logz.io token from your account settings
 - `type` - The type you want this log file to have (for searching in Logz.io)
