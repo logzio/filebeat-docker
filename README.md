@@ -10,6 +10,7 @@ You can either supply the configuration file through -v, or build your own conta
 ---
   logzio:
     token: TOKEN
+    listener: listener.logz.io
 
   files:
     -
@@ -24,6 +25,7 @@ You can either supply the configuration file through -v, or build your own conta
       path: "/var/log/another-json-log.log"
 ```
 - `TOKEN` - Your logz.io token from your account settings
+- `listener` - The logz.io listener's address
 - `type` - The type you want this log file to have (for searching in Logz.io)
 - `multiline` - If you need to combine logs throughout multiple lines (i.e exceptions). More [here](https://www.elastic.co/guide/en/beats/filebeat/current/configuration-filebeat-options.html#multiline)
 - The configuration file must be in `/root/config.yml` inside the container
