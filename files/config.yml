@@ -1,6 +1,7 @@
 ---
   logzio:
     token: TOKEN
+    listener: listener.logz.io
 
   files:
     -
