@@ -11,7 +11,7 @@ OUTPUT = "/filebeat.yml"
 
 config = YAML::load_file(CONFIG)
 
-TOKEN = config["logzio"]["token"] || ENV["LOGZIO_TOKEN"] || abort("Logzio token must be present!")
+TOKEN = ENV["LOGZIO_TOKEN"] || config["logzio"]["token"] || abort("Logzio token must be present!")
 
 options = {
 	"token" => TOKEN,
