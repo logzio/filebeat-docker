@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export TAG="logzio/logzio-filebeat:latest"
+export TAG="kenshoo/kenshoo-filebeat:latest"
 
 docker build -t $TAG ./
 echo "Built: $TAG"
