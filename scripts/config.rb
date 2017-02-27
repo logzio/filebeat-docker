@@ -5,18 +5,16 @@ require 'yaml'
 require 'erb'
 require 'ostruct'
 
-TEMPLATE = "/root/filebeat.yml.erb"
-CONFIG = "/root/config.yml"
+TEMPLATE = ENV["FILEBEAT_TEMPLATE"] || "/root/filebeat.yml.erb"
+CONFIG = ENV["FILEBEAT_CONFIG"] || "/root/config.yml"
 OUTPUT = "/filebeat.yml"
 
 config = YAML::load_file(CONFIG)
 
-if config["logzio"]["token"].nil?
-  abort("Logzio token must be present!")
-end
+TOKEN = ENV["LOGZIO_TOKEN"] || config["logzio"]["token"] || abort("Logzio token must be present!")
 
 options = {
-	"token" => config["logzio"]["token"],
+	"token" => TOKEN,
 	"listener" => if config["logzio"]["listener"].nil? then "listener.logz.io"  else config["logzio"]["listener"] end,
 	"port" => if config["logzio"]["port"].nil? then "5015" else config["logzio"]["port"] end,
 	"files" => config['files']
