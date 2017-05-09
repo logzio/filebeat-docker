@@ -36,8 +36,6 @@ job(JOB_NAME) {
         }
     }
 
-
-
     wrappers {
         preBuildCleanup()
         timestamps()
@@ -58,8 +56,8 @@ job(JOB_NAME) {
     steps {
         shell("""            
             docker login -u microcosm -p \$ARTIFACTORY_MICROCOSM_PASSWORD kenshoo-docker.jfrog.io        
-            docker build -t  $DOCKER_URL:latest .
-            docker push $DOCKER_URL:latest            
+            docker build -t  $DOCKER_URL:latest -t $DOCKER_URL:\$BUILD_NUMBER .
+            docker push $DOCKER_URL
         """)
 
     }
