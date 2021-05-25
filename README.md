@@ -1,4 +1,6 @@
-# filebeat-docker
+
+
+# This project is depreacted - filebeat-docker
 Docker that contains filebeat that sends logs to Logz.io
 
 # How to use
